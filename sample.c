@@ -1,3 +1,9 @@
+/*
+This code is adapted from an example found in the GitHub repository of Gourav Thakur.
+The original code can be found at the following link:
+https://github.com/gouravthakur39/beginners-C-program-examples/blob/master/Address%20of%201-D%20array
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
