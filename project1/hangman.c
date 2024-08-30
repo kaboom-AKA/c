@@ -3,10 +3,20 @@
 #include <string.h>
 #include <ctype.h>
 
+
+
 bool start_stop = true;
+char Guess_Word[100];              
+char hidden_word[100];                 
+int letter_count = 0;                  
+int mistakes = 7;                      
+char user_input[100];                  
+char formatted_user_input[26] = "";    
+int no_of_different_letters = 0;       
 
 void solo_game();
 void two_player_game();
+void hang_man_guessing();
 void ExitProgram();
 
 int main()
@@ -50,16 +60,63 @@ void ExitProgram()
     }
 }
 
+void solo_game()
+{
+    int topic_choosen;
+    FILE *file;
+    char line[2048];
+    
+    printf("\n\nSolo game only you and computer\n\n");
+    printf("\t1. Animals\n");
+    printf("\t2. Geography\n");
+    printf("\t3. Fruits and Vegetables\n");
+    printf("\t4. Hobbies\n");
+    printf("\t5. General\n");
+    scanf("%d", &topic_choosen);
+    
+    switch (topic_choosen)
+    {
+        case 1:
+            file = fopen("words/animals.txt", "r");
+            break;
+        case 2:
+            file = fopen("words/geography.txt", "r");
+            break;
+        case 3:
+            file = fopen("words/fruits_vegetables.txt", "r");
+            break;
+        case 4:
+            file = fopen("words/hobbies.txt", "r");
+            break;
+        case 5:
+            file = fopen("words/general.txt", "r");
+            break;
+        default:
+            printf("\nInvalid Option!\n");
+            return;
+    }
+    
+    if (file)
+    {
+        if (fgets(line, sizeof(line), file)) 
+        {
+            char *token = strtok(line, ", ");
+            while (token) 
+            {
+                printf("%s\n", token);
+                token = strtok(NULL, ", ");
+            }
+        }
+        fclose(file);
+    }
+    else
+    {
+        printf("Error opening file.\n");
+    }
+}
+
 void two_player_game() 
 {
-    char Guess_Word[100];                  // Word to be guessed
-    char hidden_word[100];                 // Displayed version with hidden letters
-    int letter_count = 0;                  // Count of correct letters guessed
-    int mistakes = 7;                      // Number of allowed mistakes
-    char user_input[100];                  // User's guess input
-    char formatted_user_input[26] = "";    // Unique guessed letters
-    int no_of_different_letters = 0;       // Counter for unique guessed letters
-
     printf("\n\n2 players Hangman game with 1 word setter and 1 guesser\n\n");
     printf("\nWord Setter, enter the guess word: ");
     scanf("%99s", Guess_Word);
@@ -227,9 +284,4 @@ void two_player_game()
     {
         printf("\nGame over! The word was: %s\n", Guess_Word);
     }
-}
-
-void solo_game()
-{
-    printf("\n\nSolo game only you and computer\n\n");
 }
