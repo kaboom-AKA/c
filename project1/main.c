@@ -44,7 +44,7 @@ int main() {
 void ExitProgram() 
 {
     char yes_no;
-    printf("You sure you want to end the program?\n[type to affirm 'Y']: ");
+    printf("\n\nYou sure you want to end the program?\n[type to affirm 'Y']: ");
     scanf(" %c", &yes_no);  
     if (yes_no == 'Y' || yes_no == 'y') 
     {  

@@ -51,11 +51,11 @@ int main() {
 
 void ExitProgram() {
     char yes_no;
-    printf("You sure you want to end the program?\n[type 'Y' to affirm]: ");
+    printf("\n\nYou sure you want to end the program?\n[type 'Y' to affirm]: ");
     scanf(" %c", &yes_no);  // The space before %c ensures it skips any whitespace
     
     if (yes_no == 'Y' || yes_no == 'y') {  
-        printf("This is the end of the program.\n");
+        printf("\nThis is the end of the program.\n");
         start_stop = false;
     }
 }

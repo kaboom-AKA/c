@@ -37,12 +37,25 @@ int main() {
                 printf("\n\nInvalid Input! Please Enter Again\n");
         }
     }
+    
     return 0;
+}
+
+void ExitProgram()
+{
+    char yes_no;
+    printf("\n\nYou sure you want to end the program?\n[type 'Y' to affirm]: ");
+    scanf(" %c", &yes_no);  // The space before %c ensures it skips any whitespace
+    
+    if (yes_no == 'Y' || yes_no == 'y') {  
+        printf("\nThis is the end of the program.\n");
+        start_stop = false;
+    }
 }
 
 void simple_trigo_and_log()
 {
-    printf("\n\n 1. Trigonometry \n2. logarithms\n ");
+    printf("\n\n1. Trigonometry \n2. logarithms\n Choose your option :");
 }
 
 void Polynomial()
@@ -58,15 +71,4 @@ void Area_Under_a_Curve()
 void Algebra()
 {
     printf("\n\n Number of Unknowns : ");
-}
-void ExitProgram() 
-{
-    char yes_no;
-    printf("You sure you want to end the program?\n[type to affirm 'Y']: ");
-    scanf("%c", &yes_no);  
-    if (yes_no == 'Y' || yes_no == 'y') 
-    {  
-        printf("This is the end of the program.\n");
-        start_stop = false;
-    }
 }
