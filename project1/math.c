@@ -18,7 +18,7 @@ int main() {
     while (start_stop) 
     {
         int user_choice;
-        printf("\n1. Simple trigonometry\n2. logarithms\n3. Polynomial \n4. Area Under a Curve \n5. up to 5 algebraic expression\n6. Exit\nEnter your option: ");
+        printf("\n\n1. Simple trigonometry\n2. logarithms\n3. Polynomial \n4. Area Under a Curve \n5. up to 5 algebraic expression\n6. Exit\nEnter your option: ");
         scanf("%d", &user_choice); 
         switch(user_choice) {
             case 1:
@@ -77,7 +77,7 @@ void simple_trigo()
     double radians = angle * (M_PI / 180.0);
 
     //Find out which Trigo the user wants
-    printf("1. Sin \n2. Cos \n3. Tan \n4. Cot \n5. csc 6. sec \nChoose your option :");
+    printf("1. Sin \n2. Cos \n3. Tan \n4. Csc \n5. Sec  \n6. Cot \nChoose your option :");
     scanf("%d", &Trigo); 
 
     //Perform calculation and display out answer
@@ -85,57 +85,65 @@ void simple_trigo()
         switch(Trigo)
         {
             case 1 : 
-                answer = sin(radians);
-                printf("%f sin %f = %.5f",coefficent,angle,answer);
+                answer = coefficent*sin(radians);
+                printf("\n%.2f sin %.2f = %.2f\n",coefficent,angle,answer);
                 Start_Stop2=false;
                 break;
             case 2 : 
-                answer = cos(radians);
-                printf("%f cos %f = %.5f",coefficent,angle,answer);
+                answer = coefficent*cos(radians);
+                printf("\n%.2f cos %.2f = %.2f\n",coefficent,angle,answer);
                 Start_Stop2=false;
                 break;
             case 3 : 
-                answer = tan(radians);
-                printf("%f tan %f = %.5f",coefficent,angle,answer);                            
+                answer = coefficent*tan(radians);
+                printf("\n%.2f tan %.2f = %.2f\n",coefficent,angle,answer);                            
                 Start_Stop2=false;
                 break;                        
             case 4 : 
                 answer = coefficent/sin(radians);
-                printf("%f csc %f = %.5f",coefficent,angle,answer);                           
+                printf("\n%.2f csc %.2f = %.2f\n",coefficent,angle,answer);                           
                 start_stop=false;
                 break; 
             case 5 : 
                 answer = coefficent/cos(radians);
-                printf("%f sec %f = %.5f",coefficent,angle,answer);                           
+                printf("\n%.2f sec %.2f = %.2f\n",coefficent,angle,answer);                           
                 Start_Stop2=false;
                 break;
             case 6 :
                 answer = coefficent/tan(radians);
-                printf("%f cot %f = %.5f",coefficent,angle,answer);                           
+                printf("\n%.2f cot %.2f = %.2f",coefficent,angle,answer);                           
                 Start_Stop2=false;
                 break;                                  
             default:
-                printf("\n\nInvalid Input! Please Enter Again\n");
+                printf("\nInvalid Input! Please Enter Again\n");
                 scanf(" %d",&Trigo);
         }
 }
 
 void simple_log()
 {
-    bool Start_Stop = true;
-    char Trigo;
-    int answer;
+    double answer;
+
+    //Find out the coefficent of the Trigo
+    double coefficent;
+    printf("Enter your coefficent :");
+    scanf(" %lf", &coefficent);
 
     //Find out the base of log
     int base;
     printf("Enter your log base :");
     scanf(" %d", &base);
 
-    //Find out the radian of the Trigo
-    double angle;
-    printf("Enter your angle :");
-    scanf(" %f", &angle);
+    //Find out the base of log
+    double argument;
+    printf("Enter your argument :");
+    scanf(" %lf", &argument);
+
+    //calculate the answer and print out answer
+    answer = coefficent*log(argument)/log(base);
+    printf("\n%.1f log%d(%.1f)  = %.2f\n",coefficent,base,argument,answer);   
 }
+
 void Polynomial()
 {
     printf("\n\n Degree of the polynomial :");
