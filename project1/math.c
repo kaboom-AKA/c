@@ -18,7 +18,7 @@ int main() {
     while (start_stop) 
     {
         int user_choice;
-        printf("\n\n1. Simple trigonometry\n2. logarithms\n3. Polynomial \n4. Area Under a Curve \n5. up to 5 algebraic expression\n6. Exit\nEnter your option: ");
+        printf("\n1. Simple trigonometry\n2. logarithms\n3. Polynomial \n4. Area Under a Curve \n5. up to 5 algebraic expression\n6. Exit\nEnter your option: ");
         scanf("%d", &user_choice); 
         switch(user_choice) {
             case 1:
@@ -124,24 +124,16 @@ void simple_log_and_expo()
 {
     double answer;
     bool Start_Stop2 = true;
+    double coefficent;
+    double base;
 
     //Find out if user want to calculate log or exponent
     int log_and_expo;
-    printf("1. Logarium \n2. Exponent\nChoose your option :");
+    printf("\n\n1. Logarium \n2. Exponent\nChoose your option :");
     scanf("%d", &log_and_expo); 
 
     while(Start_Stop2)
     {
-        //user choice 
-
-        
-        double coefficent;
-
-
-
-        double base;
-
-
         switch(log_and_expo)
         {
             case 1 :
@@ -160,7 +152,7 @@ void simple_log_and_expo()
 
                 //calculate the answer and print out answer
                 answer = coefficent*log(argument)/log(base);
-                printf("\n%.1f log%.1f(%.1f)  = %.3f\n",coefficent,base,argument,answer); 
+                printf("\n%.1f log%.1f(%.1f)  = %.5f\n",coefficent,base,argument,answer); 
 
                 //end and reset
                 Start_Stop2 = false;
@@ -174,7 +166,7 @@ void simple_log_and_expo()
                 //Find out the base 
                 printf("Enter your base :");
                 scanf(" %lf", &base);
-                
+
                 //Find out the power of exponent
                 double exponent;
                 printf("Enter your exponent :");
@@ -182,7 +174,7 @@ void simple_log_and_expo()
 
                 //calculate the answer and print out answer
                 answer = coefficent* pow(base,exponent);
-                printf("\n%.1f (%.1f^%.1f)  = %.3f\n",coefficent,base,exponent,answer);
+                printf("\n%.1f (%.1f^%.1f)  = %.5f\n",coefficent,base,exponent,answer);
 
                 //end and reset
                 Start_Stop2 = false;
