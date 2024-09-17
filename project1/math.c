@@ -12,7 +12,7 @@ void Area_Under_a_Curve(void);
 void Algebra(void);
 void ExitProgram(void);
 void simple_trigo(void);
-void simple_log(void);
+void simple_log_and_expo(void);
 
 int main() {
     while (start_stop) 
@@ -25,7 +25,7 @@ int main() {
                 simple_trigo();
                 break;
             case 2:
-                simple_log();
+                simple_log_and_expo();
                 break;
             case 3:
                 Polynomial();
@@ -120,28 +120,79 @@ void simple_trigo()
         }
 }
 
-void simple_log()
+void simple_log_and_expo()
 {
     double answer;
+    bool Start_Stop2 = true;
 
-    //Find out the coefficent of the Trigo
-    double coefficent;
-    printf("Enter your coefficent :");
-    scanf(" %lf", &coefficent);
+    //Find out if user want to calculate log or exponent
+    int log_and_expo;
+    printf("1. Logarium \n2. Exponent\nChoose your option :");
+    scanf("%d", &log_and_expo); 
 
-    //Find out the base of log
-    int base;
-    printf("Enter your log base :");
-    scanf(" %d", &base);
+    while(Start_Stop2)
+    {
+        //user choice 
 
-    //Find out the base of log
-    double argument;
-    printf("Enter your argument :");
-    scanf(" %lf", &argument);
+        
+        double coefficent;
 
-    //calculate the answer and print out answer
-    answer = coefficent*log(argument)/log(base);
-    printf("\n%.1f log%d(%.1f)  = %.2f\n",coefficent,base,argument,answer);   
+
+
+        double base;
+
+
+        switch(log_and_expo)
+        {
+            case 1 :
+                //Find out the coefficent          
+                printf("Enter your coefficent :");
+                scanf(" %lf", &coefficent);
+                
+                //Find out the base 
+                printf("Enter your base :");
+                scanf(" %lf", &base);
+
+                //Find out the base of log
+                double argument;
+                printf("Enter your argument :");
+                scanf(" %lf", &argument);
+
+                //calculate the answer and print out answer
+                answer = coefficent*log(argument)/log(base);
+                printf("\n%.1f log%.1f(%.1f)  = %.3f\n",coefficent,base,argument,answer); 
+
+                //end and reset
+                Start_Stop2 = false;
+                break;
+
+            case 2 :
+                //Find out the coefficent          
+                printf("Enter your coefficent :");
+                scanf(" %lf", &coefficent);
+                
+                //Find out the base 
+                printf("Enter your base :");
+                scanf(" %lf", &base);
+                
+                //Find out the power of exponent
+                double exponent;
+                printf("Enter your exponent :");
+                scanf(" %lf", &exponent);
+
+                //calculate the answer and print out answer
+                answer = coefficent* pow(base,exponent);
+                printf("\n%.1f (%.1f^%.1f)  = %.3f\n",coefficent,base,exponent,answer);
+
+                //end and reset
+                Start_Stop2 = false;
+                break;
+
+            default :
+                printf("\nInvalid Input! Please Enter Again\n");
+                scanf(" %d",&log_and_expo);
+        } 
+    }
 }
 
 void Polynomial()
