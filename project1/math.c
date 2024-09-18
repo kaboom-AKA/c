@@ -189,15 +189,22 @@ void simple_log_and_expo()
 
 void Polynomial()
 {
+    int degree;
     printf("\n\n Degree of the polynomial :");
+    scanf("%d",degree);
 }
 
 void Area_Under_a_Curve()
 {
+    char equation;
     printf("\n\n Equation of your curve : ");
+    scanf("%c",equation);
 }
 
 void Algebra()
 {
+    int Unknows;
     printf("\n\n Number of Unknowns : ");
+    scanf("%d",Unknows);
+    
 }
