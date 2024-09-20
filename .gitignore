@@ -5,3 +5,5 @@ sample.exe
 project1.exe
 ./project1/math.exe
 ./project1/hangman.exe
+./project1/main.exe
+./project1/word_count.exe
